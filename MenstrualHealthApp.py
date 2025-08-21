@@ -1,37 +1,23 @@
-import base64
-import io
 import streamlit as st
 import pymysql
 import bcrypt
-from fpdf import FPDF
 import pandas as pd
 import xgboost as xgb
 import tempfile
 import logging
 import numpy as np
 import joblib
+import re
 import xgboost as xgb
 import os
-import logging
-import streamlit as st
+import tempfile
+from fpdf import FPDF
+from datetime import datetime
 from streamlit_scroll_to_top import scroll_to_here
-import textwrap
-import time
-import joblib
-import re
-import os
 from sklearn.exceptions import NotFittedError
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
-from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-from reportlab.lib import colors
-from reportlab.lib.pagesizes import letter
 from email_utils import send_email_with_attachment
 from datetime import datetime
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
-from reportlab.lib.pagesizes import letter
-from reportlab.lib.styles import getSampleStyleSheet
 from dotenv import load_dotenv
-import os
 
 # Load environment variables from .env file
 load_dotenv()
@@ -58,8 +44,6 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
-
-import streamlit as st
 
 # ------------------ GLOBAL CSS ------------------
 st.markdown("""
@@ -626,7 +610,6 @@ def check_user_exists(username=None, email=None):
         conn.close()
 
 # --- FIXED: Always point to the correct models folder ---
-import os
 MODEL_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # --- Features lists (unchanged) ---
@@ -926,11 +909,6 @@ def validate_date(selected_date):
     return selected_date
 
 def generate_pdf_report(symptom_data, risk_category, username):
-    from fpdf import FPDF
-    from datetime import datetime
-    import tempfile
-    import os
-
     class PDF(FPDF):
         def header(self):
             # Simple header with color
@@ -1101,10 +1079,6 @@ def is_valid_email(email):
 
 # Modified handle_report_output 
 def handle_report_output(symptom_data, risk_category, username, user_id, page_key):
-    import streamlit as st
-    from datetime import datetime
-    import os
-
     st.markdown("""
     <h3 style='text-align:center; color:#7e0000; font-size:1.4rem; font-weight:700; margin-bottom:1.2rem;'>
         📋 Get Your PCOS Risk Assessment Report
@@ -1173,12 +1147,6 @@ def handle_report_output(symptom_data, risk_category, username, user_id, page_ke
         st.info("Please try again or contact support if the problem persists.")
 
 # ------------------ PAGE FUNCTIONS ------------------
-# Log in/Register page
-import streamlit as st
-import time
-import os
-import logging
-import joblib
 
 # --- Logger for model loading ---
 logger = logging.getLogger(__name__)
@@ -1408,8 +1376,6 @@ def page_login_register():
     }
 
     /* === ENHANCED BUTTON STYLING === */
-
-
     .stButton > button::before {
         content: '';
         position: absolute;
@@ -1464,6 +1430,7 @@ def page_login_register():
         border: 1px solid rgba(255, 105, 180, 0.1);
         box-shadow: 0 8px 32px rgba(0,0,0,0.08);
     }
+
     .privacy-container {
         background: linear-gradient(135deg, #ffe6f0, #ffb3d1);
         border: 1px solid #e91e63;
@@ -1475,6 +1442,50 @@ def page_login_register():
         margin-top: 0;
         text-align: center;
     }
+
+    /* === SUCCESS/WARNING MESSAGE STYLING === */
+    .stAlert {
+        border-radius: 12px !important;
+        border: none !important;
+        backdrop-filter: blur(10px) !important;
+    }
+
+    .stSuccess {
+        background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(139, 195, 74, 0.1)) !important;
+        border-left: 4px solid #4CAF50 !important;
+    }
+
+    .stWarning {
+        background: linear-gradient(135deg, rgba(255, 152, 0, 0.1), rgba(255, 193, 7, 0.1)) !important;
+        border-left: 4px solid #FF9800 !important;
+    }
+
+    /* === CUSTOM JOIN BUTTON === */
+    .join-button {
+        background-color: #ff6b9d !important;
+        color: white !important;
+        font-weight: 600;
+        border: none;
+        border-radius: 12px;
+        padding: 14px 0;
+        width: 100%;
+        font-size: 1rem;
+        box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+        transition: all 0.3s ease;
+        margin-top: 1rem;
+        cursor: pointer;
+    }
+
+    .join-button:hover {
+        background-color: #ff8fab !important;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+    }
+
+    .join-button:active {
+        transform: translateY(0);
+    }
+
     /* === RESPONSIVE ENHANCEMENTS === */
     @media (max-width: 768px) {
         div[data-testid="column"]:nth-child(1),
@@ -1507,32 +1518,16 @@ def page_login_register():
         }
     }
 
-    /* === SUCCESS/WARNING MESSAGE STYLING === */
-    .stAlert {
-        border-radius: 12px !important;
-        border: none !important;
-        backdrop-filter: blur(10px) !important;
-    }
-
-    .stSuccess {
-        background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(139, 195, 74, 0.1)) !important;
-        border-left: 4px solid #4CAF50 !important;
-    }
-
-    .stWarning {
-        background: linear-gradient(135deg, rgba(255, 152, 0, 0.1), rgba(255, 193, 7, 0.1)) !important;
-        border-left: 4px solid #FF9800 !important;
-    }
     @media (min-width: 1200px) {
-    .block-container {
-        max-width: 1300px;
-        padding: 1rem 2rem;
-        margin: auto;
+        .block-container {
+            max-width: 1300px;
+            padding: 1rem 2rem;
+            margin: auto;
+        }
     }
-}
     </style>
     """, unsafe_allow_html=True)
-
+        
     # 🖼️ Two-Column Layout
     col1, col2 = st.columns([1, 1], gap="large")
 
