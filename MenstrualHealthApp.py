@@ -1360,14 +1360,26 @@ def page_login_register():
         box-shadow: 0 6px 20px rgba(255, 107, 157, 0.3);
     }
 
+    /* === ENHANCED INPUT STYLING WITH PINK UNDERLINES === */
+    .stTextInput > div > div > input {
+        background: rgba(255, 255, 255, 0.9) !important;
+        border: none !important;
+        border-bottom: 2px solid #e0e0e0 !important;
+        border-radius: 8px 8px 0 0 !important;
+        padding: 0.8rem 1rem !important;
+        font-size: 1rem !important;
+        transition: all 0.3s ease !important;
+        box-shadow: none !important;
+    }
+
     .stTextInput > div > div > input:focus {
-        border-color: #e91e63 !important;
+        border-bottom: 3px solid #ff6b9d !important;
         box-shadow: 
-            0 0 0 3px rgba(233, 30, 99, 0.15),
-            0 4px 20px rgba(233, 30, 99, 0.1) !important;
+            0 3px 0 0 rgba(255, 107, 157, 0.3),
+            0 4px 20px rgba(255, 107, 157, 0.15) !important;
         outline: none !important;
-        background: rgba(255, 255, 255, 0.95) !important;
-        transform: translateY(-1px);
+        background: rgba(255, 255, 255, 0.98) !important;
+        transform: translateY(-2px);
     }
 
     .stTextInput > div > div > input::placeholder {
@@ -1375,24 +1387,30 @@ def page_login_register():
         font-weight: 400 !important;
     }
 
-    /* === FIXED BUTTON STYLING === */
+    /* === BEAUTIFUL GRADIENT BUTTONS MATCHING YOUR IMAGE === */
     .stButton > button {
-        background: linear-gradient(135deg, #ff6b9d, #ff8fab, #ffa8c4) !important;
+        background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 50%, #ffa8c4 100%) !important;
         color: white !important;
         border: none !important;
-        border-radius: 15px !important;
-        padding: 0.8rem 2rem !important;
-        font-weight: 700 !important;
-        font-size: 1.1rem !important;
+        border-radius: 25px !important;
+        padding: 0.75rem 2rem !important;
+        font-weight: 600 !important;
+        font-size: 1rem !important;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        box-shadow: 0 6px 20px rgba(255, 107, 157, 0.3) !important;
+        box-shadow: 
+            0 4px 15px rgba(255, 107, 157, 0.4),
+            0 2px 8px rgba(255, 107, 157, 0.2) !important;
         position: relative;
         overflow: hidden;
         cursor: pointer;
-        text-transform: none !important;
-        letter-spacing: 0.5px;
+        text-transform: uppercase !important;
+        letter-spacing: 0.8px !important;
         width: 100% !important;
-        margin-top: 1rem !important;
+        margin-top: 1.5rem !important;
+        height: 50px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
 
     .stButton > button::before {
@@ -1402,14 +1420,16 @@ def page_login_register():
         left: -100%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-        transition: left 0.5s ease;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+        transition: left 0.6s ease;
     }
 
     .stButton > button:hover {
-        background: linear-gradient(135deg, #ff5a8a, #ff7aa0, #ff95b7) !important;
-        transform: translateY(-3px) !important;
-        box-shadow: 0 12px 30px rgba(255, 107, 157, 0.4) !important;
+        background: linear-gradient(135deg, #ff5a8a 0%, #ff7aa0 50%, #ff95b7 100%) !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 
+            0 8px 25px rgba(255, 107, 157, 0.5),
+            0 4px 15px rgba(255, 107, 157, 0.3) !important;
     }
 
     .stButton > button:hover::before {
@@ -1417,7 +1437,10 @@ def page_login_register():
     }
 
     .stButton > button:active {
-        transform: translateY(-1px) !important;
+        transform: translateY(0px) !important;
+        box-shadow: 
+            0 3px 12px rgba(255, 107, 157, 0.4),
+            0 1px 6px rgba(255, 107, 157, 0.2) !important;
     }
 
     /* === ENHANCED CONTAINER LAYOUT === */
@@ -1431,7 +1454,7 @@ def page_login_register():
         box-shadow: 0 8px 32px rgba(0,0,0,0.08);
     }
 
-        div[data-testid="column"]:nth-child(2) {
+    div[data-testid="column"]:nth-child(2) {
         background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 248, 250, 0.6));
         border-radius: 20px;
         padding: 2rem;
@@ -1470,34 +1493,9 @@ def page_login_register():
         border-left: 4px solid #FF9800 !important;
     }
 
-    /* === CUSTOM JOIN BUTTON === */
-    .join-button {
-        background: linear-gradient(135deg, #ff6b9d, #ff8fab, #ffa8c4) !important;
-        color: white !important;
-        font-weight: 700 !important;
-        border: none !important;
-        border-radius: 15px !important;
-        padding: 0.8rem 2rem !important;
-        font-size: 1.1rem !important;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        box-shadow: 0 6px 20px rgba(255, 107, 157, 0.3) !important;
-        position: relative;
-        overflow: hidden;
-        cursor: pointer;
-        text-transform: none !important;
-        letter-spacing: 0.5px;
-        width: 100% !important;
-        margin-top: 1rem !important;
-    }
-
-    .join-button:hover {
-        background: linear-gradient(135deg, #ff5a8a, #ff7aa0, #ff95b7) !important;
-        transform: translateY(-3px) !important;
-        box-shadow: 0 12px 30px rgba(255, 107, 157, 0.4) !important;
-    }
-
-    .join-button:active {
-        transform: translateY(-1px) !important;
+    .stError {
+        background: linear-gradient(135deg, rgba(244, 67, 54, 0.1), rgba(255, 82, 82, 0.1)) !important;
+        border-left: 4px solid #f44336 !important;
     }
 
     /* === RESPONSIVE ENHANCEMENTS === */
@@ -1531,10 +1529,10 @@ def page_login_register():
             max-width: 100%;
         }
         
-        .stButton > button,
-        .join-button {
+        .stButton > button {
             padding: 0.7rem 1.5rem !important;
-            font-size: 1rem !important;
+            font-size: 0.9rem !important;
+            height: 45px !important;
         }
     }
 
@@ -1670,7 +1668,7 @@ def page_login_register():
             </div>
         </div>
         """, unsafe_allow_html=True)
-
+        
 # Page 1
 def page_introduction():
     st.markdown("""
