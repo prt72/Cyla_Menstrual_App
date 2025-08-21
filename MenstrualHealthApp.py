@@ -2153,11 +2153,11 @@ def page_introduction():
             This chart shows the fluctuation of key hormones such as estrogen, progesterone, and LH (luteinizing hormone) throughout the different phases of your cycle.
             """)
 
-            st.write("""
-            • **Follicular Phase:** Estrogen rises, helping the follicles in your ovaries develop.
-            • **Ovulation:** Estrogen peaks and LH surges, triggering the release of an egg.
-            • **Luteal Phase:** Progesterone increases to prepare the uterus for a potential pregnancy.
-            """)
+            st.markdown("""
+                - **Follicular Phase:** Estrogen rises, helping the follicles in your ovaries develop.  
+                - **Ovulation:** Estrogen peaks and LH surges, triggering the release of an egg.  
+                - **Luteal Phase:** Progesterone increases to prepare the uterus for a potential pregnancy.
+                """, unsafe_allow_html=True)
 
             st.markdown(
                 f"""
