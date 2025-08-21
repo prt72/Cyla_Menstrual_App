@@ -2109,11 +2109,13 @@ def page_introduction():
         # Right column (info)
         with right:
             st.subheader("Why watch this short video?")
-            st.write("""
-            • Understand the menstrual phases at a glance.  
-            • Learn how hormones change across the cycle.  
-            • Quick tips for self-care per phase.
-            """)
+            st.markdown("""
+                    - **Learn how hormones change across the cycle.**  
+                    - **Understand the menstrual phases at a glance.**   
+                    - **Quick tips for self-care per phase.**
+
+            """, unsafe_allow_html=True)
+
             # Tip box
             st.markdown(
                 f"""
