@@ -2125,45 +2125,7 @@ def page_introduction():
             )
 
     # Tab 2: Hormones Throughout the Cycle
-    with tab2:
-        st.success("🎉 Welcome! Your self-care journey begins now.")
-        
-        # --- ERROR DISPLAY AT TOP ---
-        reg_error = None
-        
-        new_username = st.text_input("New Username Label", placeholder="Choose a username", key="reg_username", label_visibility="collapsed")
-        new_email = st.text_input("New Email Label", placeholder="Your email", key="reg_email", label_visibility="collapsed")
-        new_password = st.text_input("New Password Label", type="password", placeholder="Create a password", key="reg_password", label_visibility="collapsed")
-
-        if st.button("Join", key="register_button", type="primary"):
-            if new_username and new_email and new_password:
-                # 1. Check email format
-                if not is_valid_email(new_email):
-                    reg_error = "❌ Please enter a valid email address (e.g., user@example.com)"
-                
-                # 2. Check if username/email already exists
-                elif check_user_exists(new_username, new_email):
-                    reg_error = "❌ Username or email already exists. Please choose different ones."
-                
-                # 3. If all validations pass, create user
-                else:
-                    new_user_id = create_user(new_username, new_email, new_password)
-                    if new_user_id:
-                        st.session_state.logged_in = True
-                        st.session_state.username = new_username
-                        st.session_state.user_id = new_user_id
-                        st.session_state["scroll_to_top_intro"] = True
-                        st.success("🎉 Welcome! Your self-care journey begins now.")
-                        st.rerun()
-                    else:
-                        reg_error = "❌ Registration failed. Please try again."
-            else:
-                reg_error = "⚠️ Please fill in all fields 💕"
-        
-        # --- SHOW ERROR AT TOP AFTER FORM ---
-        if reg_error:
-            st.error(reg_error)
-
+    
         # Right column (info)
         with right:
             st.write("""
