@@ -1555,9 +1555,10 @@ def page_login_register():
             # --- ERROR DISPLAY AT VERY TOP ---
             login_error = None
             
+            username = st.text_input("Username Label", placeholder="Username", key="login_username", label_visibility="collapsed")
+            password = st.text_input("Password Label", type="password", placeholder="Password", key="login_password", label_visibility="collapsed")
+
             if st.button("Begin Your Journey", key="login_button", type="primary"):
-                username = st.session_state.get("login_username", "")
-                password = st.session_state.get("login_password", "")
                 if username and password:
                     # Check if user exists first
                     if not check_user_exists(username, None):
@@ -1582,19 +1583,16 @@ def page_login_register():
                 st.error(login_error)
             else:
                 st.success("🎉 Welcome back!")
-    
-            # --- INPUT FIELDS BELOW ---
-            username = st.text_input("Username Label", placeholder="Username", key="login_username", label_visibility="collapsed")
-            password = st.text_input("Password Label", type="password", placeholder="Password", key="login_password", label_visibility="collapsed")
 
         with tab2:
             # --- ERROR DISPLAY AT VERY TOP ---
             reg_error = None
             
+            new_username = st.text_input("New Username Label", placeholder="Choose a username", key="reg_username", label_visibility="collapsed")
+            new_email = st.text_input("New Email Label", placeholder="Your email", key="reg_email", label_visibility="collapsed")
+            new_password = st.text_input("New Password Label", type="password", placeholder="Create a password", key="reg_password", label_visibility="collapsed")
+
             if st.button("Join", key="register_button", type="primary"):
-                new_username = st.session_state.get("reg_username", "")
-                new_email = st.session_state.get("reg_email", "")
-                new_password = st.session_state.get("reg_password", "")
                 if new_username and new_email and new_password:
                     # 1. Check email format
                     if not is_valid_email(new_email):
@@ -1624,11 +1622,6 @@ def page_login_register():
                 st.error(reg_error)
             else:
                 st.success("🎉 Welcome! Your self-care journey begins now.")
-            
-        # --- INPUT FIELDS BELOW ---
-        new_username = st.text_input("New Username Label", placeholder="Choose a username", key="reg_username", label_visibility="collapsed")
-        new_email = st.text_input("New Email Label", placeholder="Your email", key="reg_email", label_visibility="collapsed")
-        new_password = st.text_input("New Password Label", type="password", placeholder="Create a password", key="reg_password", label_visibility="collapsed")
 
     with col2:
         # Features Section
