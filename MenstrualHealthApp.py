@@ -2372,32 +2372,32 @@ def page_introduction():
 
     with st.expander("Getting Started"):
         st.markdown("""
-    **Page 2 – Phase Identification & PCOS Screening**
+            **Page 2 – Phase Identification & PCOS Screening**
 
-    On the **“Phase & Risk”** page, you’ll be asked to provide:
-    - Date of your last menstrual period  
-    - Average cycle length  
-    - Symptoms (e.g., acne, weight changes)  
+            On the **"Phase & Risk"** page, you'll:
+            - Discover your current menstrual phase with personalized recommendations 🌙
+            - Complete a quick symptom assessment to estimate your PCOS risk level 🔍
+            - Receive immediate insights about your hormonal health 💫
 
-    Based on your input, we estimate your **cycle phase** and assess potential **PCOS indicators**.
+            ---
+            **What happens if you're at higher risk?** 🤔
+            **Page 3 - Detailed Analysis?**
 
-    ---
+            If our screening suggests elevated PCOS risk, you'll unlock access to our **detailed analysis** - a comprehensive assessment that dives deeper into your health profile with more precise evaluation.
 
-    **Page 3 – PCOS Risk Evaluation**
+            *Curious about what the detailed analysis includes?*
+            - Advanced hormone tracking and interpretation
+            - Personalized lifestyle recommendations
+            - Deeper insight into your unique hormonal patterns
+            - Actionable steps tailored just for you
 
-    You’ll then be asked to share more detailed info like:
-    - Age, weight & height (used to calculate BMI)  
-    - Hormonal test results (FSH, LH, AMH, TSH – optional)
+            ---
 
-    The app will generate a **PCOS risk score** with a clear explanation.
+            **Why This Matters** ✨
 
-    ---
-
-    **Why This Matters**
-
-    Hormonal health affects your mood, skin, fertility, and overall wellbeing.  
-    This app helps you **understand** and **track** these factors so you can make more informed health decisions — with clarity and confidence.
-    """)
+            Your hormonal health influences everything from mood and energy to fertility and long-term wellness.  
+            This app helps you **understand your body's signals** and provides personalized guidance - giving you clarity and confidence in your health journey.
+            """)
 
 def get_detailed_history(user_id):
     conn = get_db_connection()
@@ -3043,7 +3043,7 @@ def page_phase_risk():
         <div class="symptom-questions-container">
             <div style="text-align: center; margin-bottom: 1rem;">
                 <h3 style="color: #7e0000; font-size: 1.4rem; font-weight: 600; margin: 0;">
-                    📿 Tell us about your symptoms
+                    Tell us about your symptoms
                 </h3>
                 <p style="color: #8b0026; font-size: 0.95rem; margin: 0.3rem 0 0 0;">
                     Your responses help us provide personalized insights
@@ -3213,7 +3213,7 @@ def page_phase_risk():
                     <p class="phase-description">You're doing great, but let's keep an eye on things, okay?</p>
                 </div>
                 <div class="section-card">
-                    <h3 style="color: #7e0000; text-align: center; margin-bottom: 1.5rem;">💗 Your Personalized Recommendations</h3>
+                    <h3 style="color: #7e0000; text-align: center; margin-bottom: 1.5rem;">Your Personalized Recommendations</h3>
                     <ul style="color: #000000; font-size: 1.1rem; line-height: 1.8; list-style: none; padding-left: 0;">
                         <li style="margin: 1rem 0; padding-left: 2rem; position: relative;">
                             <span style="position: absolute; left: 0; color: #ffc107; font-size: 1.2rem;">👩‍⚕️</span>
@@ -3715,8 +3715,8 @@ def display_recommendations():
     """, unsafe_allow_html=True)
     
     # Display recommendations title
-    st.markdown('<div class="recommendation-title">Your Personalized Recommendations</div>', unsafe_allow_html=True)
-    
+    st.markdown('<div class="recommendation-title"><strong>Your Personalized Recommendations</strong></div>', unsafe_allow_html=True)
+
     # Display the appropriate recommendations
     if "High" in category:
         if doctor_feedback == "Yes":
@@ -3762,7 +3762,7 @@ def display_recommendations():
             """)
     
     # Disclaimer
-    st.markdown('<div class="recommendation-disclaimer">**💡 These tips support care but don\'t replace professional medical advice.**</div>', unsafe_allow_html=True)
+    st.markdown('<div class="recommendation-disclaimer">💡 These tips support care but don\'t replace professional medical advice.</div>', unsafe_allow_html=True)
 # ----------------- SESSION INITIALIZATION -----------------
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
