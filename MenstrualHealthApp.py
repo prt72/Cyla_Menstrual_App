@@ -3659,6 +3659,18 @@ def page_detailed_analysis():
             )
             st.markdown('</div>', unsafe_allow_html=True)
 
+            # --- ADD HISTORY SECTION HERE TOO ---
+            with st.expander("📜 Your Detailed Assessment History"):
+                history = get_detailed_history(st.session_state["user_id"])
+                if history:
+                    for entry in history:
+                        st.write(f"**Submitted at:** {entry['submitted_at']}")
+                        st.write(f"**Risk Category:** {entry['risk_category']}")
+                        st.write(f"**Age:** {entry['age']} | **BMI:** {entry['bmi']} | **Cycle Length:** {entry['cycle_length']} days")
+                        st.write("---")
+                else:
+                    st.info("No previous detailed assessments found.")
+
     # Display recommendations if they exist from previous prediction
     elif st.session_state.get("detailed_form_submitted", False) and st.session_state.get("prediction_data"):
         display_recommendations()
@@ -3672,17 +3684,17 @@ def page_detailed_analysis():
         )
         st.markdown('</div>', unsafe_allow_html=True)
 
-        # History Section
-    with st.expander("📜 Your Detailed Assessment History"):
-        history = get_detailed_history(st.session_state["user_id"])
-        if history:
-            for entry in history:
-                st.write(f"**Submitted at:** {entry['submitted_at']}")
-                st.write(f"**Risk Category:** {entry['risk_category']}")
-                st.write(f"**Age:** {entry['age']} | **BMI:** {entry['bmi']} | **Cycle Length:** {entry['cycle_length']} days")
-                st.write("---")
-        else:
-            st.info("No previous detailed assessments found.")
+        # --- ADD HISTORY SECTION INSIDE HERE ---
+        with st.expander("📜 Your Detailed Assessment History"):
+            history = get_detailed_history(st.session_state["user_id"])
+            if history:
+                for entry in history:
+                    st.write(f"**Submitted at:** {entry['submitted_at']}")
+                    st.write(f"**Risk Category:** {entry['risk_category']}")
+                    st.write(f"**Age:** {entry['age']} | **BMI:** {entry['bmi']} | **Cycle Length:** {entry['cycle_length']} days")
+                    st.write("---")
+            else:
+                st.info("No previous detailed assessments found.")
 
 # NEW FUNCTION: Display recommendations based on stored data
 def display_recommendations():
