@@ -2042,7 +2042,7 @@ def page_introduction():
     }
 
     .info-box li::before {
-        content: '💖';
+        content: '🌸';
         position: absolute;
         left: 0;
         top: 0;
