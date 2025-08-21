@@ -2125,8 +2125,30 @@ def page_introduction():
             )
 
     # Tab 2: Hormones Throughout the Cycle
-    # Right column (info)
-    with right:
+    with tab2:
+        st.header("Hormone Levels Throughout the Cycle")
+        # Columns: Image on the left, Info on the right
+        left, right = st.columns([3, 2])
+        # Left column (image)
+        with left:
+            image_url = "https://www.forthwithlife.co.uk/wp-content/uploads/2021/03/hormone-graph.png"
+            st.markdown(
+                f"""
+                <div class="stImageHoverWrapper" style="text-align: center;">
+                    <img src="{image_url}" width="600" style="border-radius: 15px; border: 3px solid #ff99aa;" />
+                    <div class="source-link">
+                        Hormone Graph by 
+                        <a href="https://www.forthwithlife.co.uk/wp-content/uploads/2021/03/hormone-graph.png" target="_blank" rel="noopener noreferrer">
+                            ForthWithLife
+                        </a>
+                    </div>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+
+        # Right column (info)
+        with right:
             st.write("""
             This chart shows the fluctuation of key hormones such as estrogen, progesterone, and LH (luteinizing hormone) throughout the different phases of your cycle.
             """)
