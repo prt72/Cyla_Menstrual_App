@@ -2125,9 +2125,8 @@ def page_introduction():
             )
 
     # Tab 2: Hormones Throughout the Cycle
-    
-        # Right column (info)
-        with right:
+    # Right column (info)
+    with right:
             st.write("""
             This chart shows the fluctuation of key hormones such as estrogen, progesterone, and LH (luteinizing hormone) throughout the different phases of your cycle.
             """)
