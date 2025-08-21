@@ -1153,7 +1153,7 @@ logger = logging.getLogger(__name__)
 
 # Login Page
 def page_login_register():
-    # 💄 ENHANCED STYLING: Soft Pink Gradient, Logo, Features, Glow
+    # ENHANCED STYLING: Soft Pink Gradient, Logo, Features, Glow
     st.markdown("""
     <style>
     /* === EVEN LIGHTER SOFT PINK GRADIENT BACKGROUND === */
@@ -1375,7 +1375,26 @@ def page_login_register():
         font-weight: 400 !important;
     }
 
-    /* === ENHANCED BUTTON STYLING === */
+    /* === FIXED BUTTON STYLING === */
+    .stButton > button {
+        background: linear-gradient(135deg, #ff6b9d, #ff8fab, #ffa8c4) !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 15px !important;
+        padding: 0.8rem 2rem !important;
+        font-weight: 700 !important;
+        font-size: 1.1rem !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        box-shadow: 0 6px 20px rgba(255, 107, 157, 0.3) !important;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        text-transform: none !important;
+        letter-spacing: 0.5px;
+        width: 100% !important;
+        margin-top: 1rem !important;
+    }
+
     .stButton > button::before {
         content: '';
         position: absolute;
@@ -1388,11 +1407,9 @@ def page_login_register():
     }
 
     .stButton > button:hover {
-        transform: translateY(-3px);
-        box-shadow: 
-            0 10px 30px rgba(255, 107, 157, 0.5),
-            0 4px 15px rgba(0,0,0,0.15);
-        background: linear-gradient(135deg, #ff8fab, #ffa8c4, #ffb3d1);
+        background: linear-gradient(135deg, #ff5a8a, #ff7aa0, #ff95b7) !important;
+        transform: translateY(-3px) !important;
+        box-shadow: 0 12px 30px rgba(255, 107, 157, 0.4) !important;
     }
 
     .stButton > button:hover::before {
@@ -1400,14 +1417,7 @@ def page_login_register():
     }
 
     .stButton > button:active {
-        transform: translateY(-1px);
-    }
-
-    div[data-testid="column"]:nth-child(2) .stButton > button:hover {
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 240, 245, 0.95)) !important;
-        transform: translateY(-2px) !important;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.12) !important;
-        border-color: rgba(255, 105, 180, 0.5) !important;
+        transform: translateY(-1px) !important;
     }
 
     /* === ENHANCED CONTAINER LAYOUT === */
@@ -1421,7 +1431,7 @@ def page_login_register():
         box-shadow: 0 8px 32px rgba(0,0,0,0.08);
     }
 
-    div[data-testid="column"]:nth-child(2) {
+        div[data-testid="column"]:nth-child(2) {
         background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 248, 250, 0.6));
         border-radius: 20px;
         padding: 2rem;
@@ -1462,28 +1472,32 @@ def page_login_register():
 
     /* === CUSTOM JOIN BUTTON === */
     .join-button {
-        background-color: #ff6b9d !important;
+        background: linear-gradient(135deg, #ff6b9d, #ff8fab, #ffa8c4) !important;
         color: white !important;
-        font-weight: 600;
-        border: none;
-        border-radius: 12px;
-        padding: 14px 0;
-        width: 100%;
-        font-size: 1rem;
-        box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
-        transition: all 0.3s ease;
-        margin-top: 1rem;
+        font-weight: 700 !important;
+        border: none !important;
+        border-radius: 15px !important;
+        padding: 0.8rem 2rem !important;
+        font-size: 1.1rem !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        box-shadow: 0 6px 20px rgba(255, 107, 157, 0.3) !important;
+        position: relative;
+        overflow: hidden;
         cursor: pointer;
+        text-transform: none !important;
+        letter-spacing: 0.5px;
+        width: 100% !important;
+        margin-top: 1rem !important;
     }
 
     .join-button:hover {
-        background-color: #ff8fab !important;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+        background: linear-gradient(135deg, #ff5a8a, #ff7aa0, #ff95b7) !important;
+        transform: translateY(-3px) !important;
+        box-shadow: 0 12px 30px rgba(255, 107, 157, 0.4) !important;
     }
 
     .join-button:active {
-        transform: translateY(0);
+        transform: translateY(-1px) !important;
     }
 
     /* === RESPONSIVE ENHANCEMENTS === */
@@ -1515,6 +1529,12 @@ def page_login_register():
 
         .stTabs [data-baseweb="tab-list"] {
             max-width: 100%;
+        }
+        
+        .stButton > button,
+        .join-button {
+            padding: 0.7rem 1.5rem !important;
+            font-size: 1rem !important;
         }
     }
 
