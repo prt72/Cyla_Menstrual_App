@@ -1,0 +1,13 @@
+streamlit
+pymysql
+bcrypt
+fpdf
+pandas
+xgboost
+numpy
+joblib
+scikit-learn
+reportlab
+python-dotenv
+imbalanced-learn
+streamlit-scroll-to-top
