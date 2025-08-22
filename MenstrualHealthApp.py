@@ -1556,7 +1556,7 @@ def page_login_register():
             <div class="logo-circle">
                 <img src="https://i.imgur.com/SjsKElM.png" alt="App Logo">
             </div>
-            <h1 class="app-title">Menstrual Health & PCOS Risk Detection App</h1>
+            <h1 class="app-title">Cyla</h1>
             <p class="app-subtitle">Your journey to cycle harmony & self-care starts here</p>
         </div>
         """, unsafe_allow_html=True)
