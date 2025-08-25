@@ -1424,6 +1424,15 @@ def page_login_register():
         transition: left 0.6s ease;
     }
 
+    /* FORCE .stButton container to match input width */
+    .stButton {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        width: 100% !important;
+    }
+
+
     .stButton > button:hover {
         background: linear-gradient(135deg, #ff5a8a 0%, #ff7aa0 50%, #ff95b7 100%) !important;
         transform: translateY(-2px) !important;
